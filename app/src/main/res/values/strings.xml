@@ -7,4 +7,18 @@
     <string name="large">Large</string>
     <string name="medium">Medium</string>
     <string name="small">Small</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_profile">Profile</string>
+
+    <string name="title_machine_overview">Machine Overview</string>
+
+    <string name="title_acc_info">Account Info</string>
+    <string name="title_email">User Email</string>
+    <string name="title_mobile">Mobile</string>
+    <string name="title_last_op">Last Operation</string>
+    <string name="btn_logout">Logout</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
