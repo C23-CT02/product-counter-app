@@ -16,4 +16,3 @@ rootProject.name = "ProductCounterApp"
 include ':app'
 include ':OpenCV'
 //include ':openCV'
-include ':OpenCV'
