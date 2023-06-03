@@ -138,8 +138,8 @@ public class CameraActivity extends org.opencv.android.CameraActivity {
                     centerY = 150;
 //                    startCamera();
                 }
-                cameraBridgeViewBase.disableView();
-
+//                cameraBridgeViewBase.disableView();
+                pointsList.clear();
 //                recreate();
 //                finish();
 //                startActivity(getIntent());
@@ -198,10 +198,10 @@ public class CameraActivity extends org.opencv.android.CameraActivity {
             public void onCameraViewStopped() {
 //                outFrame.release();
                 outFrame.release();
-//                grayFrame.release();
-//                blurFrame.release();
-//                rgbFrame.release();
-                outFrame= null;
+                grayFrame.release();
+                blurFrame.release();
+                rgbFrame.release();
+//                outFrame= null;
 //                grayFrame= null;
 //                blurFrame= null;
 //                rgbFrame= null;
@@ -210,7 +210,7 @@ public class CameraActivity extends org.opencv.android.CameraActivity {
 
             @Override
             public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
-//                if (startCount == true) {
+                if (startCount == true) {
                     // Initialize frame
                     rgbFrame = inputFrame.rgba();
 
@@ -264,8 +264,17 @@ public class CameraActivity extends org.opencv.android.CameraActivity {
 
                     return outFrame;
                 }
-//                return null;
-//            }
+                else {
+                    // Initialize frame
+                    rgbFrame = inputFrame.rgba();
+                    outFrame = rgbFrame.clone();
+
+                    // Draw the preview rectangle
+                    Imgproc.rectangle(outFrame, roi.tl(), roi.br(), new Scalar(0, 255, 0), 4, Imgproc.LINE_8);
+
+                    return outFrame;
+                }
+            }
         });
 
         if (OpenCVLoader.initDebug()) {
